@@ -7,7 +7,9 @@ import {
     StyleSheet,
     Image,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    TouchableWithoutFeedback,
+    Keyboard
 } from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import Toast from 'react-native-root-toast';
@@ -23,8 +25,9 @@ class Memory extends Component {
 
         return (
             //backgroundimage
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <Image source={require('../images/Bg.png')} style={styles.backgroundImage} resizeMode="cover" >
-
+          
                 <View style={styles.logoView}>
                     <Image source={require('../images/Logo.png')} style={styles.logoImage} />
                 </View>
@@ -113,8 +116,9 @@ class Memory extends Component {
                     animation={false}
                     hideOnPress={true}
                 >帳號或密碼不能為空！</Toast>
+               
             </Image>
-
+            </TouchableWithoutFeedback>
 
         );
     }
@@ -128,7 +132,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(255,255,255)',
         borderWidth: 1,
         borderColor: '#E0E5ED',
-        marginLeft: 40,
+        alignSelf:'center',
         marginTop: -57,
         zIndex: 1,
     },
@@ -152,8 +156,14 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         backgroundColor: 'rgb(255,255,255)',
         marginTop: 110,
-        marginLeft: 132,
-        elevation: 6,
+        //marginLeft: 132,
+        //alignItems:'center',
+        alignSelf:'center',
+        //elevation: 6,
+        shadowColor:'rgba(0,0,0,0.10)',
+        shadowOffset:{width: 0,height: 1},
+        shadowOpacity:6,
+        
     },
     logoImage: {
         width: 88,
@@ -172,7 +182,7 @@ const styles = StyleSheet.create({
         marginLeft: 16,
     },
     InputtextText: {
-        marginTop:3,
+        marginTop:1,
         width: 250,
         height: 48,
         marginLeft: 16,
@@ -211,6 +221,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         fontFamily: 'Roboto-Medium',
         color: '#FFFFFF',
+        backgroundColor:'transparent',
     },
     forgetText: {
         marginLeft: 116,
@@ -221,11 +232,15 @@ const styles = StyleSheet.create({
         color: '#144669',
     },
     notmemberText: {
-        marginLeft: 118,
+        //marginLeft: 118,
         marginTop: 16,
         fontSize: 14,
         fontFamily: 'Roboto-Light',
         color: '#FFFFFF',
+        backgroundColor:'transparent',
+        alignSelf:'center',
+        alignItems:'center',
+        marginLeft:width*0.31
     },
     registerText: {
         marginLeft: 4,
@@ -233,7 +248,9 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Roboto-Medium',
         color: '#FFFFFF',
-        textDecorationLine: 'underline'
+        backgroundColor:'transparent',
+        textDecorationLine: 'underline',
+        alignItems:'center'
     },
 
 

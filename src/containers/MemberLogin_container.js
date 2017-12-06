@@ -31,8 +31,8 @@ class MemberLoginContainer extends MemberLoginComponent {
     constructor(props) {
         super(props);
         this.state = {
-            Account: '',
-            Password: '',
+            Account: 'joyceljy6256@gmail.com',
+            Password: 'joyce',
             apierr: false,
             loginfail: false,
             err1: false,

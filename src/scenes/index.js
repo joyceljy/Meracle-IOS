@@ -23,7 +23,6 @@ import AllKidsAvgScore from './AllKidsAvgScoreADay_scene'
 // import waveavgpage from './waveavg_scene';
 const scenes = Actions.create(
     <Scene key="root" >
-
         <Scene key="MemberLogin" component={MemberLogin} hideNavBar={true} />
         <Scene key="MemberRegister" component={MemberRegister} hideNavBar={true} />
         <Scene key="ChildrenRegister" component={ChildrenRegister} hideNavBar={true} />
@@ -34,12 +33,12 @@ const scenes = Actions.create(
         <Scene key="AllKidsMeal" component={AllKidsMeal} hideNavBar={true} />
         <Scene key="kidwavepage" component={kidwavepage} hideNavBar={true} />
         <Scene key="Sleepingavg" component={Sleepingavg} hideNavBar={true} />
+        <Scene key="MindwaveTest" component={MindwaveTest} hideNavBar={true} />
+        <Scene key="TestMindwave" component={TestMindwave} hideNavBar={true} />
         <Scene key="AllKidsAvgScore" component={AllKidsAvgScore} hideNavBar={true} />
         <Scene key="MemberEdit" component={MemberEdit} hideNavBar={true} />
         <Scene key="ChildrenEdit" component={ChildrenEdit} hideNavBar={true} />
         <Scene key="EditPassword" component={EditPassword} hideNavBar={true} />
-        <Scene key="MindwaveTest" component={MindwaveTest} hideNavBar={true} />
-        <Scene key="TestMindwave" component={TestMindwave} hideNavBar={true} />
         <Scene key="Member" component={Member} hideNavBar={true} />
         <Scene key="Setting" component={Setting} hideNavBar={true} />
         <Scene key="SideBar" component={SideBar} hideNavBar={true} />

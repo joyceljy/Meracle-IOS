@@ -8,7 +8,9 @@ import {
     Image,
     TouchableOpacity,
     TouchableHighlight,
-    Dimensions
+    Dimensions,
+    TouchableWithoutFeedback,
+    Keyboard
 
 } from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
@@ -171,9 +173,9 @@ class Memory extends Component {
         if (this.state.RegisterStep == '1') {
             return (
                 //backgroundimage
-
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.Viewstyle}>
-
+                
                     {/*registerTopBar */}
                     <View><RegisterTopBar /></View>
                     {/*registerView*/}
@@ -273,9 +275,9 @@ class Memory extends Component {
                                     err1: false
                                 }), 5000); // hide toast after 5s
                             } else {
-                                if (this.state.nameCheck != "") {
+                                
                                     this.props.changeRegisterStep('2');
-                                }
+                                
 
                             }
                         }}>
@@ -295,9 +297,9 @@ class Memory extends Component {
                         hideOnPress={true}
                         textColor={'255,255,255,0.8'}
                     >欄位不能為空！</Toast>
-
+                   
                 </View>
-
+                </TouchableWithoutFeedback>
             );
         }
         //第二頁
@@ -311,7 +313,7 @@ class Memory extends Component {
                     <View><RegisterTopBar /></View>
 
                     <Text style={styles.imageTitle}>專屬您小孩的大頭貼</Text>
-                    <View style={[styles.imageView, { marginLeft: 128 }]}>
+                    <View style={[styles.imageView, { alignSelf:'center', }]}>
                         {(this.state.avatarSource === null) ? (
                             <Image style={styles.avatar} source={require('../images/avatar_boy copy 2.png')} />
                         ) : (
@@ -342,9 +344,9 @@ class Memory extends Component {
         //第三頁
         if (this.state.RegisterStep == '3') {
             return (
-
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.Viewstyle}>
-
+                
                     {/*registerTopBar */}
                     <View><RegisterTopBar /></View>
 
@@ -509,9 +511,9 @@ class Memory extends Component {
                         hideOnPress={true}
                         textColor={'rgba(255,255,255,0.8)'}
                     >有題目未選擇！</Toast>
-
+                    
                 </View>
-
+                </TouchableWithoutFeedback>
             );
         }
 
@@ -572,12 +574,14 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         fontFamily: 'Roboto-Medium',
         color: '#FFFFFF',
+        backgroundColor:'transparent'
     },
     Inputtextview: {
         flexDirection: 'row',
         backgroundColor: 'rgba(255,255,255,0.25)',
         borderRadius: 100,
-        width: 304,
+        //width: 304,
+        width: width*0.8,
         height: 48,
         marginTop: 16,
         //marginLeft: 40,
@@ -593,7 +597,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     },
     InputtextPlaceholder: {
-        marginTop:3,
+        marginTop:1,
         fontSize: 16,
         lineHeight: 24,
         fontFamily: 'Roboto-Regular',
@@ -680,7 +684,7 @@ const styles = StyleSheet.create({
         //marginLeft: 8,
         width:80,
         height:80,
-        borderRadius: 100,
+        borderRadius: 30,
     },
     otherImagetitle: {
         fontSize: 16,
@@ -699,7 +703,7 @@ const styles = StyleSheet.create({
         shadowColor: 'rgba(0,0,0,0.12)',
         shadowOpacity: 6,
         marginTop: 16,
-        marginLeft: 162,
+        alignSelf:'center',
         marginBottom: -4,
         elevation:6,
         

@@ -6,10 +6,13 @@ import {
     Button,
     StyleSheet,
     Image,
-    TouchableOpacity
+    TouchableOpacity,Dimensions,
+    TouchableWithoutFeedback,
+    Keyboard
 } from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import Toast from 'react-native-root-toast';
+var {height, width} = Dimensions.get('window');
 
 
 
@@ -23,8 +26,9 @@ class Memory extends Component {
     render() {
         return (
 
-
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.Viewstyle}>
+            
                 <View style={styles.topbarView}>
                     <TouchableOpacity onPress={() => {  this.props.BackButtonClick(); }}>
                         <Image source={require('../images/back.png')} style={styles.topbarIcon} />
@@ -96,8 +100,9 @@ class Memory extends Component {
                     animation={false}
                     hideOnPress={true}
                 >輸入有誤！</Toast>
+               
             </View>
-
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -137,13 +142,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'rgba(255,255,255,0.25)',
         borderRadius: 100,
-        width: 304,
+       // width: 304,
+       width: width*0.8,
         height: 48,
         marginTop: 16,
         //marginLeft: 40,
     },
     InputtextText: {
-        marginTop:4,
+        marginTop:1,
         width: 250,
         marginLeft: 16,
         fontSize: 16,
@@ -170,10 +176,10 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         shadowOffset: { width: 0.6, height: 8, },
         shadowColor: 'rgba(0,0,0,0.20)',
-        shadowRadius: 8,
-        shadowOpacity: 0,
+        shadowOpacity: 8,
         //marginLeft: 56,
         marginTop: 80,
+        alignSelf:'center'
 
     },
   
@@ -183,7 +189,8 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         fontFamily: 'Roboto-Medium',
         color: '#FFFFFF',
-        marginLeft: 120,
+        marginLeft: 105,
+        backgroundColor:'transparent'
     },
    remindText:{
     //marginLeft: 118,

@@ -6,7 +6,10 @@ import {
     Button,
     StyleSheet,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions,
+    TouchableWithoutFeedback,
+    Keyboard
 } from 'react-native';
 import MaterialsIcon from 'react-native-vector-icons/MaterialIcons';
 import { Kohana } from 'react-native-textinput-effects';
@@ -14,7 +17,7 @@ import Toast from 'react-native-root-toast';
 import Icon from 'react-native-vector-icons/Entypo';
 import Drawer from 'react-native-drawer';
 import SideBarContent from '../containers/SideBarContent';
-
+var {height, width} = Dimensions.get('window');
 
 class Memory extends Component {
     constructor(props) {
@@ -32,7 +35,9 @@ class Memory extends Component {
     render() {
 
         return (
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.Viewstyle}>
+            
                 <View style={styles.topbarView}>
                     <TouchableOpacity onPress={() => { this.props.BackButton(); }}>
                         <Image source={require('../images/back.png')} style={styles.topbarIcon} />
@@ -130,7 +135,9 @@ class Memory extends Component {
                     animation={false}
                     hideOnPress={true}
                 >新密碼與確認新密碼不一致！</Toast>
+                
             </View>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -167,7 +174,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'rgba(180,218,229,0.30)',
         borderRadius: 100,
-        width: 304,
+        //width: 304,
+        width: width*0.8,
         height: 48,
         borderColor: 'rgba(180,218,229,0.30)',
         borderWidth: 0.5,
@@ -183,7 +191,7 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
     },
     InputtextPlaceholder: {
-        marginTop:3,
+        marginTop:1,
         fontSize: 16,
         lineHeight: 24,
         fontFamily: 'Roboto-Regular',
@@ -206,6 +214,7 @@ const styles = StyleSheet.create({
         marginLeft: 56,
         marginTop: 32,
         elevation: 2,
+        alignSelf:'center'
         
     },
     editButtonText: {
@@ -215,6 +224,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto-Medium',
         color: 'rgb(255,255,255)',
         marginLeft: 97,
+        backgroundColor:'transparent'
     },
 
 });
